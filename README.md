@@ -7,13 +7,16 @@ Con pyinstaller generar el `.spec` y agregar todas las dependencias al `.spec`
 
 keylogger.spec
 ```.spec
-    hiddenimports=['keyboard', 'sys', 'os', 'time', 'ctypes', 'datetime', 'threading', 'pyautogui', 'Pillow'],
+    hiddenimports=['keyboard', 'sys', 'os', 'time', 'ctypes', 'datetime', 'threading', 'pyautogui', 'Pillow']
 ```
 Agregar al hide import las librerias y luego compilarlo desde el `.spec`
 ```pyinstaller
 pyinstaller .\keylogger.spec
 ```
 
+
+
+-----------------------
 ```python
 import os
 import sys
