@@ -2,6 +2,14 @@
 Un script de keylogger desarrollado en Python para la plataforma Windows, que no solo registra las pulsaciones de teclas, sino que también captura automáticamente la pantalla cada 15 segundos.
 
 ### Comandos de Compilacion
+
+Con pyinstaller generar el `.spec` y agregar todas las dependencias al `.spec`
+
+keylogger.spec
+```.spec
+    hiddenimports=['keyboard', 'sys', 'os', 'time', 'ctypes', 'datetime', 'threading', 'pyautogui', 'Pillow'],
+```
+Agregar al hide import las librerias y luego compilarlo desde el `.spec`
 ```pyinstaller
 pyinstaller .\keylogger.spec
 ```
